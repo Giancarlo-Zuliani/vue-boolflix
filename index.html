@@ -22,11 +22,20 @@
         <div class="">
 
           <img src="resources/logo.png" alt="">
-          <input type="text" v-bind="searchbar" name="" placeholder="Search" value="">
+          <input type="text" v-model="searchinput" @keyup="search()" placeholder="Search" value="">
 
         </div>
       </header>
-    </main>
+      <section>
+        <div v-for="films in filmsArray" class="container">
+          {{films.title}}
+          {{films.original_title}}
+          {{films.original_language}}
+          {{films.vote_average}}
+        </div>
 
+      </section>
+    </main>
+    <script src="js/script.js" charset="utf-8"></script>
   </body>
 </html>
