@@ -28,10 +28,10 @@
       </header>
       <section>
         <div v-for="films in filmsArray" class="container">
-          <img class="poster" :src="imgsrc + films.poster_path" alt="resources/emptyposter.jpg">
+          <img class="poster" :src="imgsrc + films.poster_path" onerror="this.src='resources/emptyposter.jpg';" alt="resources/emptyposter.jpg">
           <div class="overlay">
-            <h5>Titolo:{{films.title}}</h5>
-            <h5>Titolo originale:{{films.original_title}}</h5>
+            <h3>{{films.title}}</h4>
+            <h5 v-if="films.title !== films.original_title">Titolo originale:{{films.original_title}}</h5>
             <div class="starscontainer">
               <i :class="{yellow: films.vote_average > 1}" class="fas fa-star"></i>
               <i :class="{yellow: films.vote_average > 2}" class="fas fa-star"></i>
@@ -40,37 +40,25 @@
               <i :class="{yellow: films.vote_average > 8}" class="fas fa-star"></i>
             </div>
             <p>Overview:{{films.overview}}</p>
-
-
+            <img :src="'resources/flags/' + films.original_language + '.svg' " alt="">
           </div>
-          <!-- {{films.title}}
-          {{films.original_title}}
-          {{films.original_language}}
-          {{films.vote_average}}
-          <img :src="'resources/flags/' + films.original_language + '.svg' " alt="">
-          <div class="starscontainer">
-            <i :class="{yellow: films.vote_average > 1}" class="fas fa-star"></i>
-            <i :class="{yellow: films.vote_average > 2}" class="fas fa-star"></i>
-            <i :class="{yellow: films.vote_average > 4}" class="fas fa-star"></i>
-            <i :class="{yellow: films.vote_average > 6}" class="fas fa-star"></i>
-            <i :class="{yellow: films.vote_average > 8}" class="fas fa-star"></i>
-          </div> -->
         </div>
 
         <div v-for="serie in seriesArray" class="container">
           <img class="poster" :src="imgsrc + serie.poster_path"  onerror="this.src='resources/emptyposter.jpg';" alt="">
-          <!-- {{serie.name}}
-          {{serie.original_title}}
-          {{serie.original_language}}
-          {{serie.vote_average}}
-          <img :src="'resources/flags/' + serie.original_language + '.svg' " alt="">
-          <div class="starscontainer">
-            <i :class="{yellow: serie.vote_average > 1}" class="fas fa-star"></i>
-            <i :class="{yellow: serie.vote_average > 2}" class="fas fa-star"></i>
-            <i :class="{yellow: serie.vote_average > 4}" class="fas fa-star"></i>
-            <i :class="{yellow: serie.vote_average > 6}" class="fas fa-star"></i>
-            <i :class="{yellow: serie.vote_average > 8}" class="fas fa-star"></i>
-          </div> -->
+          <div class="overlay">
+            <h3>{{serie.name}}</h3>
+            <h5 v-if="serie.name !== serie.original_name">Titolo originale:{{serie.original_name}}</h5>
+            <div class="starscontainer">
+              <i :class="{yellow: serie.vote_average > 6}" class="fas fa-star"></i>
+              <i :class="{yellow: serie.vote_average > 2}" class="fas fa-star"></i>
+              <i :class="{yellow: serie.vote_average > 1}" class="fas fa-star"></i>
+              <i :class="{yellow: serie.vote_average > 4}" class="fas fa-star"></i>
+              <i :class="{yellow: serie.vote_average > 8}" class="fas fa-star"></i>
+            </div>
+            <p>Overview:{{serie.overview}}</p>
+            <img :src="'resources/flags/' + serie.original_language + '.svg' " alt="">
+          </div>
         </div>
 
       </section>

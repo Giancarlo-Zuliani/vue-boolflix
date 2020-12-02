@@ -36,13 +36,16 @@ section{
   width:calc(25% - 15px);
   margin:15px 15px 0 0;
   background-color: #000;
-  border:solid black 10px;
-  min-height:150px;
+  border:solid white 2px;
+  min-height:270px;
   color:white;
   position:relative;
+  padding:8px;
 }
 .starscontainer{
+  margin:0 auto;
   color:#000;
+  font-size: 16px;
 }
 
 .yellow{
@@ -55,8 +58,9 @@ section{
 }
 
 .overlay{
+  padding:15px;
   background-color: #000;
-  opacity: .6;
+  opacity: .8;
   position:absolute;
   top:50%;
   left:50%;
@@ -68,7 +72,23 @@ section{
   justify-content: space-around;
 }
 
-
 .container:hover .overlay{
   display: flex;
+}
+
+.overlay p{
+  max-height: 50%;
+  overflow-y: auto;
+  word-wrap: break-word;
+  font-size: 14px;
+  max-width: 95%;
+}
+
+.overlay img{
+  width:20%;
+  margin:0 auto;
+}
+
+.overlay h3 ,.overlay h5{
+  text-align:center;
 }
