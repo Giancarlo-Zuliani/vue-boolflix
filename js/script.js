@@ -4,7 +4,8 @@ const APP = new Vue({
     apiKey : '7a61773aa391abd450409993c20193bd',
     filmsArray : [],
     seriesArray:[],
-    searchinput:""
+    searchinput:"",
+    imgsrc:'https://image.tmdb.org/t/p/w92'
   },
   mounted : function(){
     axios.get('https://api.themoviedb.org/3/search/movie?api_key=' + this.apiKey + '&query=ritorno+al+futuro')

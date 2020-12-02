@@ -28,6 +28,7 @@
       </header>
       <section>
         <div v-for="films in filmsArray" class="container">
+          <img :src="imgsrc + films.poster_path" alt="resources/emptyposter.jpg">
           {{films.title}}
           {{films.original_title}}
           {{films.original_language}}
@@ -41,7 +42,9 @@
             <i :class="{yellow: films.vote_average > 8}" class="fas fa-star"></i>
           </div>
         </div>
+
         <div v-for="serie in seriesArray" class="container">
+          <img :src="imgsrc + serie.poster_path"  onerror="this.src='resources/emptyposter.jpg';" alt="">
           {{serie.name}}
           {{serie.original_title}}
           {{serie.original_language}}
