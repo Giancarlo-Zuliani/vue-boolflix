@@ -32,6 +32,13 @@
           {{films.original_title}}
           {{films.original_language}}
           {{films.vote_average}}
+          <div class="starscontainer">
+            <i :class="{yellow: films.vote_average > 1}" class="fas fa-star"></i>
+            <i :class="{yellow: films.vote_average > 2}" class="fas fa-star"></i>
+            <i :class="{yellow: films.vote_average > 4}" class="fas fa-star"></i>
+            <i :class="{yellow: films.vote_average > 6}" class="fas fa-star"></i>
+            <i :class="{yellow: films.vote_average > 8}" class="fas fa-star"></i>
+          </div>
         </div>
 
       </section>
