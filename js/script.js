@@ -8,11 +8,14 @@ const APP = new Vue({
     imgsrc:'https://image.tmdb.org/t/p/w342'
   },
   mounted : function(){
-    axios.get('https://api.themoviedb.org/3/search/movie?api_key=' + this.apiKey + '&query=ritorno+al+futuro')
+    axios.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&query=&api_key=' + this.apiKey )
     .then(response => {
       this.filmsArray = response.data.results;
-      console.log(response.data.results);
-    })
+    });
+    axios.get('https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&query=&api_key=' + this.apiKey )
+    .then(response=>{
+      this.seriesArray = response.data.results;
+    });
   },
   methods:{
     search(){
