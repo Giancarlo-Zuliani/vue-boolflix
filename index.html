@@ -28,8 +28,22 @@
       </header>
       <section>
         <div v-for="films in filmsArray" class="container">
-          <img :src="imgsrc + films.poster_path" alt="resources/emptyposter.jpg">
-          {{films.title}}
+          <img class="poster" :src="imgsrc + films.poster_path" alt="resources/emptyposter.jpg">
+          <div class="overlay">
+            <h5>Titolo:{{films.title}}</h5>
+            <h5>Titolo originale:{{films.original_title}}</h5>
+            <div class="starscontainer">
+              <i :class="{yellow: films.vote_average > 1}" class="fas fa-star"></i>
+              <i :class="{yellow: films.vote_average > 2}" class="fas fa-star"></i>
+              <i :class="{yellow: films.vote_average > 4}" class="fas fa-star"></i>
+              <i :class="{yellow: films.vote_average > 6}" class="fas fa-star"></i>
+              <i :class="{yellow: films.vote_average > 8}" class="fas fa-star"></i>
+            </div>
+            <p>Overview:{{films.overview}}</p>
+
+
+          </div>
+          <!-- {{films.title}}
           {{films.original_title}}
           {{films.original_language}}
           {{films.vote_average}}
@@ -40,12 +54,12 @@
             <i :class="{yellow: films.vote_average > 4}" class="fas fa-star"></i>
             <i :class="{yellow: films.vote_average > 6}" class="fas fa-star"></i>
             <i :class="{yellow: films.vote_average > 8}" class="fas fa-star"></i>
-          </div>
+          </div> -->
         </div>
 
         <div v-for="serie in seriesArray" class="container">
-          <img :src="imgsrc + serie.poster_path"  onerror="this.src='resources/emptyposter.jpg';" alt="">
-          {{serie.name}}
+          <img class="poster" :src="imgsrc + serie.poster_path"  onerror="this.src='resources/emptyposter.jpg';" alt="">
+          <!-- {{serie.name}}
           {{serie.original_title}}
           {{serie.original_language}}
           {{serie.vote_average}}
@@ -56,7 +70,7 @@
             <i :class="{yellow: serie.vote_average > 4}" class="fas fa-star"></i>
             <i :class="{yellow: serie.vote_average > 6}" class="fas fa-star"></i>
             <i :class="{yellow: serie.vote_average > 8}" class="fas fa-star"></i>
-          </div>
+          </div> -->
         </div>
 
       </section>

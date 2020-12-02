@@ -5,7 +5,7 @@ const APP = new Vue({
     filmsArray : [],
     seriesArray:[],
     searchinput:"",
-    imgsrc:'https://image.tmdb.org/t/p/w92'
+    imgsrc:'https://image.tmdb.org/t/p/w342'
   },
   mounted : function(){
     axios.get('https://api.themoviedb.org/3/search/movie?api_key=' + this.apiKey + '&query=ritorno+al+futuro')
@@ -16,7 +16,6 @@ const APP = new Vue({
   },
   methods:{
     search(){
-
       let films = 'https://api.themoviedb.org/3/search/movie?api_key=' + this.apiKey + '&query=' + this.searchinput.replace(/\s/g,'+');
       let series = 'https://api.themoviedb.org/3/search/tv?api_key=' + this.apiKey  + '&query=' + this.searchinput.replace(/\s/g,'+');
       let filmRequest = axios.get(films);
@@ -25,7 +24,7 @@ const APP = new Vue({
       .then(axios.spread((...responses) => {
       this.filmsArray = responses[0].data.results;
       this.seriesArray = responses[1].data.results;
-      }))
+    }));
     }
   }
 })
