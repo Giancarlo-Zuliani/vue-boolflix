@@ -32,6 +32,7 @@
           {{films.original_title}}
           {{films.original_language}}
           {{films.vote_average}}
+          <img :src="'resources/flags/' + films.original_language + '.svg' " alt="">
           <div class="starscontainer">
             <i :class="{yellow: films.vote_average > 1}" class="fas fa-star"></i>
             <i :class="{yellow: films.vote_average > 2}" class="fas fa-star"></i>
