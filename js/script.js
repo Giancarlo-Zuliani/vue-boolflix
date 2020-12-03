@@ -4,7 +4,8 @@ const APP = new Vue({
     apiKey : '7a61773aa391abd450409993c20193bd',
     dataArray : [],
     searchinput:"",
-    imgsrc:'https://image.tmdb.org/t/p/w342'
+    imgsrc:'https://image.tmdb.org/t/p/w342',
+    cast : []
   },
   mounted : function(){
     axios.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&query=&api_key=' + this.apiKey )
@@ -26,7 +27,17 @@ const APP = new Vue({
       axios.all([filmRequest , seriesRequest])
       .then(axios.spread((...responses) => {
       this.dataArray = [...responses[0].data.results , ...responses[1].data.results];
-    }));
+      }));
+    },
+    getCast(id){
+      this.cast = []
+      axios.get('https://api.themoviedb.org/3/movie/'+ id +'?api_key=' + this.apiKey+'&append_to_response=credits')
+      .then(response => {
+        for(let i = 0 ; i < 5 ; i++){
+          this.cast.push(response.data.credits.cast[i]);
+        }
+        console.log(this.cast);
+      })
     }
   }
 })
