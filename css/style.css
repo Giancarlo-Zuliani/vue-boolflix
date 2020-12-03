@@ -118,3 +118,18 @@ section{
   top:5px;
   color:crimson;
 }
+
+@media screen and (max-width:740px){
+  .container{
+    width:calc(50% - 15px);
+  }
+}
+
+@media screen and (max-width:455px){
+  .container{
+    width:calc(100%);
+  }
+  header img{
+    max-width: 60%;
+  }
+}
