@@ -33,7 +33,7 @@ header div{
 }
 section{
   width:80%;
-  margin:0 auto;
+  margin:0 auto 50px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -89,9 +89,10 @@ section{
   max-width: 95%;
 }
 
-.overlay img{
+.cast img{
   width:20%;
-  margin:0 auto;
+  text-align: left;
+  display: inline;
 }
 
 .overlay h3 ,.overlay h5{
