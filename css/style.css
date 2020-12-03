@@ -97,3 +97,21 @@ section{
 .overlay h3 ,.overlay h5{
   text-align:center;
 }
+
+.noresultbanner{
+  width:80%;
+  height: calc(100vh - 80px);
+  margin:0 auto;
+  text-align: center;
+}
+
+.noresultbanner img{
+  width:80%;
+  height:70%;
+}
+
+.noresultbanner h1{
+  color:#285dbe;
+  margin-top:20px;
+  font-size: 60px; 
+}

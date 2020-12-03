@@ -27,6 +27,10 @@
         </div>
       </header>
       <section>
+        <div v-if="dataArray.length < 1" class="noresultbanner">
+          <img src="resources/noresults.svg" alt="">
+          <h1>nessun risultato trovato</h1>
+        </div>
         <div v-for="movie in dataArray" class="container">
           <img class="poster" :src="imgsrc + movie.poster_path" onerror="this.src='resources/emptyposter.jpg';" alt="resources/emptyposter.jpg">
           <div class="overlay">
