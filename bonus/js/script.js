@@ -39,9 +39,16 @@ const APP = new Vue({
           this.cast.push(result.data.credits.cast[i]);
         }
         result.data.genres.forEach((item, i) => {
-          this.genre.push(item.name);
+          if(i<4){
+            this.genre.push(item.name);
+          }
         });
-
+      })
+    },
+    getFilmsByGenre(gen){
+      axios.get('https://api.themoviedb.org/3/discover/movie?api_key='+ this.apiKey + '&with_genres=' + gen)
+      .then(result => {
+        this.dataArray = result.data.results;
       })
     }
   }
