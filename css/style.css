@@ -113,5 +113,12 @@ section{
 .noresultbanner h1{
   color:#285dbe;
   margin-top:20px;
-  font-size: 60px; 
+  font-size: 60px;
+}
+
+.type{
+  position:absolute;
+  right:10px;
+  top:5px;
+  color:crimson;
 }

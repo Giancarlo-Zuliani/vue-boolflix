@@ -32,6 +32,8 @@
           <h1>nessun risultato trovato</h1>
         </div>
         <div v-for="movie in dataArray" class="container">
+          <h6 class="type" v-if="movie.title !== undefined">Movie</h6>
+          <h6 class="type" v-else>TVseries</h6>
           <img class="poster" :src="imgsrc + movie.poster_path" onerror="this.src='resources/emptyposter.jpg';" alt="resources/emptyposter.jpg">
           <div class="overlay">
             <h3 v-if="movie.title !== undefined">{{movie.title}}</h3>
