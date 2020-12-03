@@ -27,37 +27,21 @@
         </div>
       </header>
       <section>
-        <div v-for="films in filmsArray" class="container">
-          <img class="poster" :src="imgsrc + films.poster_path" onerror="this.src='resources/emptyposter.jpg';" alt="resources/emptyposter.jpg">
+        <div v-for="movie in dataArray" class="container">
+          <img class="poster" :src="imgsrc + movie.poster_path" onerror="this.src='resources/emptyposter.jpg';" alt="resources/emptyposter.jpg">
           <div class="overlay">
-            <h3>{{films.title}}</h4>
-            <h5 v-if="films.title !== films.original_title">Titolo originale:{{films.original_title}}</h5>
+            <h3 v-if="movie.title !== undefined">{{movie.title}}</h3>
+            <h3 v-else>{{movie.name}}</h3>
+            <h5 v-if="movie.title !== movie.original_title">Titolo originale:{{movie.original_title}}</h5>
             <div class="starscontainer">
-              <i :class="{yellow: films.vote_average > 1}" class="fas fa-star"></i>
-              <i :class="{yellow: films.vote_average > 2}" class="fas fa-star"></i>
-              <i :class="{yellow: films.vote_average > 4}" class="fas fa-star"></i>
-              <i :class="{yellow: films.vote_average > 6}" class="fas fa-star"></i>
-              <i :class="{yellow: films.vote_average > 8}" class="fas fa-star"></i>
+              <i :class="{yellow: movie.vote_average > 1}" class="fas fa-star"></i>
+              <i :class="{yellow: movie.vote_average > 2}" class="fas fa-star"></i>
+              <i :class="{yellow: movie.vote_average > 4}" class="fas fa-star"></i>
+              <i :class="{yellow: movie.vote_average > 6}" class="fas fa-star"></i>
+              <i :class="{yellow: movie.vote_average > 8}" class="fas fa-star"></i>
             </div>
-            <p>Overview:{{films.overview}}</p>
-            <img :src="'resources/flags/' + films.original_language + '.svg' " alt="">
-          </div>
-        </div>
-
-        <div v-for="serie in seriesArray" class="container">
-          <img class="poster" :src="imgsrc + serie.poster_path"  onerror="this.src='resources/emptyposter.jpg';" alt="">
-          <div class="overlay">
-            <h3>{{serie.name}}</h3>
-            <h5 v-if="serie.name !== serie.original_name">Titolo originale:{{serie.original_name}}</h5>
-            <div class="starscontainer">
-              <i :class="{yellow: serie.vote_average > 6}" class="fas fa-star"></i>
-              <i :class="{yellow: serie.vote_average > 2}" class="fas fa-star"></i>
-              <i :class="{yellow: serie.vote_average > 1}" class="fas fa-star"></i>
-              <i :class="{yellow: serie.vote_average > 4}" class="fas fa-star"></i>
-              <i :class="{yellow: serie.vote_average > 8}" class="fas fa-star"></i>
-            </div>
-            <p>Overview:{{serie.overview}}</p>
-            <img :src="'resources/flags/' + serie.original_language + '.svg' " alt="">
+            <p>Overview:{{movie.overview}}</p>
+            <img :src="'resources/flags/' + movie.original_language + '.svg' " alt="">
           </div>
         </div>
 
