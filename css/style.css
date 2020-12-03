@@ -94,6 +94,10 @@ section{
   text-align:center;
 }
 
+.flag{
+  width:20%;
+  margin:0 auto;
+}
 .noresultbanner{
   width:80%;
   height: calc(100vh - 80px);

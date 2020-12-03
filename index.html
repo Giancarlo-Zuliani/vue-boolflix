@@ -31,7 +31,7 @@
           <img src="resources/noresults.svg" alt="">
           <h1>nessun risultato trovato</h1>
         </div>
-        <div v-for="movie in dataArray"class="container">
+        <div v-for="movie in dataArray" class="container">
           <h6 class="type" v-if="movie.title !== undefined">Movie</h6>
           <h6 class="type" v-else>TVseries</h6>
           <img class="poster" :src="imgsrc + movie.poster_path" onerror="this.src='resources/emptyposter.jpg';" alt="resources/emptyposter.jpg">
@@ -47,6 +47,8 @@
               <i :class="{yellow: movie.vote_average > 8}" class="fas fa-star"></i>
             </div>
             <p>Overview:{{movie.overview}}</p>
+              <img class="flag" :src="'resources/flags/' + movie.original_language + '.svg' " alt="">
+            </div>
           </div>
         </div>
 
