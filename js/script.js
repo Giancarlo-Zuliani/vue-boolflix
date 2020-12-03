@@ -17,7 +17,6 @@ const APP = new Vue({
       this.dataArray = [...this.dataArray , ...response.data.results]
     });
   },
-  
   methods:{
     search(){
       let movies = 'https://api.themoviedb.org/3/search/movie?api_key=' + this.apiKey + '&query=' + this.searchinput.replace(/\s/g,'+');
@@ -28,16 +27,6 @@ const APP = new Vue({
       .then(axios.spread((...responses) => {
       this.dataArray = [...responses[0].data.results , ...responses[1].data.results];
       }));
-    },
-    getCast(id){
-      this.cast = []
-      axios.get('https://api.themoviedb.org/3/movie/'+ id +'?api_key=' + this.apiKey+'&append_to_response=credits')
-      .then(response => {
-        for(let i = 0 ; i < 5 ; i++){
-          this.cast.push(response.data.credits.cast[i]);
-        }
-        console.log(this.cast);
-      })
     }
   }
 })
