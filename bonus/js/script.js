@@ -6,22 +6,17 @@ const APP = new Vue({
     searchinput:"",
     imgsrc:'https://image.tmdb.org/t/p/w342',
     cast : [],
-    genre :[]
+    genre :[],
+    navSel :'home',
+    page : 3
   },
   mounted : function(){
-    axios.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&query=&api_key=' + this.apiKey )
-    .then(response => {
-      this.dataArray = response.data.results;
-    });
-    axios.get('https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&query=&api_key=' + this.apiKey )
-    .then(response=>{
-      this.dataArray = [...this.dataArray , ...response.data.results]
-    });
+    this.getBest();
   },
   methods:{
     search(){
-      let movies = 'https://api.themoviedb.org/3/search/movie?api_key=' + this.apiKey + '&query=' + this.searchinput.replace(/\s/g,'+');
-      let series = 'https://api.themoviedb.org/3/search/tv?api_key=' + this.apiKey  + '&query=' + this.searchinput.replace(/\s/g,'+');
+      let movies = 'https://api.themoviedb.org/3/search/movie?api_key=' + this.apiKey + '&page='+ this.page + '&query=' + this.searchinput.replace(/\s/g,'+');
+      let series = 'https://api.themoviedb.org/3/search/tv?api_key=' + this.apiKey + '&page='+ this.page + '&query=' + this.searchinput.replace(/\s/g,'+');
       let filmRequest = axios.get(movies);
       let seriesRequest = axios.get(series);
       axios.all([filmRequest , seriesRequest])
@@ -50,6 +45,19 @@ const APP = new Vue({
       .then(result => {
         this.dataArray = result.data.results;
       })
+    },
+    navChange(str){
+      this.navSel = str;
+    },
+    getBest(){
+      axios.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&query=&api_key=' + this.apiKey + '&page=' + this.page)
+      .then(response => {
+        this.dataArray = response.data.results;
+      });
+      axios.get('https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&query=&api_key=' + this.apiKey + '&page=' + this.page)
+      .then(response=>{
+        this.dataArray = [...this.dataArray , ...response.data.results]
+      });
     }
   }
 })

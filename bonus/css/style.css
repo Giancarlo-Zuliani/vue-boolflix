@@ -27,15 +27,25 @@ header div{
   align-items: center;
 }
 
+nav{
+  margin: 90px auto;
+  text-align: center;
+  font-size: 25px;
+}
+
 ul{
   list-style: none;
 }
 
 li{
   display:inline;
-  border-bottom:1px solid #dc1a28;
   color:#dc1a28;
   cursor: pointer;
+  margin-right: 20px;
+}
+
+.activenav{
+  border-bottom:2px solid #dc1a28;
 }
 
 #searchinput{
@@ -104,7 +114,7 @@ transform:scale(1.3);
   max-height: 50%;
   overflow-y: auto;
   word-wrap: break-word;
-  font-size: 16px;
+  font-size: 14px;
   max-width: 95%;
 }
 

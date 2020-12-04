@@ -22,16 +22,25 @@
       <header>
         <div class="">
           <img src="resources/logo.png" alt="">
-          <ul>
-            <li>Movie</li>
-            <li>Tv series</li>
-            <li>commedy</li>
-            <li>drama</li>
-            <li>action</li>
-          </ul>
           <input type="text" id="searchinput" v-model="searchinput" @keyup="search()" placeholder="Search" value="">
         </div>
       </header>
+
+      <nav>
+        <ul>
+          <li :class ="{activenav: navSel == 'home'}" @click="navChange('home'),getBest()">HOME</li>
+          <li :class ="{activenav: navSel == 'movie'}" @click="navChange('movie')">MOVIE</li>
+          <li :class ="{activenav: navSel == 'tvseries'}" @click="navChange('tvseries')">TV SERIES</li>
+          <li :class ="{activenav: navSel == 'comedy'}"@click="navChange('comedy'),getFilmsByGenre(35)" >COMEDY</li>
+          <li :class ="{activenav: navSel == 'drama'}" @click="navChange('drama'),getFilmsByGenre(18)">DRAMA</li>
+          <li :class ="{activenav: navSel == 'action'}" @click="navChange('action'),getFilmsByGenre(28)">ACTION</li>
+        </ul>
+          <div class="pagenav">
+            <i class="fas fa-chevron-left"></i>
+            <span>page x of x</span>
+            <i class="fas fa-chevron-right"></i>
+          </div>
+    </nav>
 
       <!-- MAIN SECTION -->
       <section>
@@ -60,7 +69,9 @@
             <p>Overview:{{movie.overview}}</p>
             <div class="info">
               <img class="flag" :src="'resources/flags/' + movie.original_language + '.svg' " alt="">
-              <h6 class="cast" v-for="actor in cast ">{{actor.name}}</h6>
+              <div class="">
+                <h6 class="cast" v-for="actor in cast ">{{actor.name}}</h6>
+              </div>
             </div>
             <div class="genre">
               <span class="genres" v-for="genre in genre">{{genre}}</span>
