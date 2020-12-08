@@ -26,6 +26,15 @@
         </div>
       </header>
 
+      <nav>
+        <ul>
+          <li :class ="{activenav: navSel == 'home'}" @click="navChange('home'),getBest()">HOME</li>
+          <li :class ="{activenav: navSel == 'comedy'}"@click="navChange('comedy'),getFilmsByGenre(35)" >COMEDY</li>
+          <li :class ="{activenav: navSel == 'drama'}" @click="navChange('drama'),getFilmsByGenre(18)">DRAMA</li>
+          <li :class ="{activenav: navSel == 'action'}" @click="navChange('action'),getFilmsByGenre(28)">ACTION</li>
+        </ul>
+    </nav>
+
       <!-- MAIN SECTION -->
       <section>
         <!--NO RESULTS BANNER-->
@@ -33,7 +42,7 @@
           <img src="resources/noresults.svg" alt="">
           <h1>nessun risultato trovato</h1>
         </div>
-        <div v-for="movie in dataArray" class="container">
+        <div v-for="movie in dataArray" class="container" @mouseenter="getCast(movie.id)">
           <h6 class="type" v-if="movie.title !== undefined">Movie</h6>
           <h6 class="type" v-else>TVseries</h6>
           <img class="poster" :src="imgsrc + movie.poster_path" onerror="this.src='resources/emptyposter.jpg';" alt="resources/emptyposter.jpg">
@@ -51,7 +60,15 @@
             </div>
             <!-- OVERVIEW -->
             <p>Overview:{{movie.overview}}</p>
+            <div class="info">
               <img class="flag" :src="'resources/flags/' + movie.original_language + '.svg' " alt="">
+              <div class="">
+                <h6 class="cast" v-for="actor in cast ">{{actor.name}}</h6>
+              </div>
+            </div>
+            <div class="genre">
+              <span class="genres" v-for="genre in genre">{{genre}}</span>
+            </div>
             </div>
           </div>
         </div>
