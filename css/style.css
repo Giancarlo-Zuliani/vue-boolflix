@@ -26,18 +26,10 @@ header div{
   justify-content: space-between;
   align-items: center;
 }
-
 nav{
-  position:fixed;
-  top:80px;
-  width:100%;
-  text-align: center;
-  font-size: 25px;
-  z-index: 99;
-  background-color:black;
-  height:80px;
+  display: flex;
+  flex-wrap: wrap;
 }
-
 ul{
   list-style: none;
   margin-top: 20px;
@@ -62,7 +54,7 @@ li{
 }
 section{
   width:80%;
-  margin:180px auto 50px;
+  margin:250px auto 50px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -109,7 +101,7 @@ section{
 }
 .container:hover{
 transform:scale(1.3);
-  z-index:999;
+  z-index:80;
 }
 
 .container:hover .overlay{
