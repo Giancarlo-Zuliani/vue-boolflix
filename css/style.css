@@ -28,13 +28,19 @@ header div{
 }
 
 nav{
-  margin: 90px auto;
+  position:fixed;
+  top:80px;
+  width:100%;
   text-align: center;
   font-size: 25px;
+  z-index: 99;
+  background-color:black;
+  height:80px;
 }
 
 ul{
   list-style: none;
+  margin-top: 20px;
 }
 
 li{
@@ -56,7 +62,7 @@ li{
 }
 section{
   width:80%;
-  margin:100px auto 50px;
+  margin:180px auto 50px;
   display: flex;
   flex-wrap: wrap;
 }
