@@ -7,15 +7,15 @@ const APP = new Vue({
     imgsrc:'https://image.tmdb.org/t/p/w342',
     cast : [],
     genre :[],
-    navSel :'home',
+    navSel :'home'
   },
   mounted : function(){
     this.getBest();
   },
   methods:{
     search(){
-      let movies = 'https://api.themoviedb.org/3/search/movie?api_key=' + this.apiKey + '&page='+ this.page + '&query=' + this.searchinput.replace(/\s/g,'+');
-      let series = 'https://api.themoviedb.org/3/search/tv?api_key=' + this.apiKey + '&page='+ this.page + '&query=' + this.searchinput.replace(/\s/g,'+');
+      let movies = 'https://api.themoviedb.org/3/search/movie?api_key=' + this.apiKey + '&query=' + this.searchinput.replace(/\s/g,'+');
+      let series = 'https://api.themoviedb.org/3/search/tv?api_key=' + this.apiKey  + '&query=' + this.searchinput.replace(/\s/g,'+');
       let filmRequest = axios.get(movies);
       let seriesRequest = axios.get(series);
       axios.all([filmRequest , seriesRequest])
