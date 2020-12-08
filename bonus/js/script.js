@@ -8,7 +8,6 @@ const APP = new Vue({
     cast : [],
     genre :[],
     navSel :'home',
-    page : 3
   },
   mounted : function(){
     this.getBest();
